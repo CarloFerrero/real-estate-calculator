@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChakraProvider, Container, Input, Stack, Text, Heading, Box, Tag, Flex, Divider, Button } from '@chakra-ui/react';
+import { ChakraProvider, Container, Input, Stack, Text, Heading, Box, Tag, Flex, Divider, Button, textDecoration } from '@chakra-ui/react';
 import FixedExpensesModal from './FixedExpensesModal';
 import { InfoOutlineIcon } from '@chakra-ui/icons';
 
@@ -8,7 +8,7 @@ const App: React.FC = () => {
   const [renovationBudget, setRenovationBudget] = useState<number>(20000);
   const [furnitureBudget, setFurnitureBudget] = useState<number>(20000);
   const [personalBudget, setPersonalBudget] = useState<number>(30000);
-  const [parentsBudget, setParentsBudget] = useState<number>(50000);
+  const [parentsBudget, setParentsBudget] = useState<number>(0);
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [fixedExpenses, setFixedExpenses] = useState({
@@ -111,20 +111,23 @@ const App: React.FC = () => {
           </Flex>
           <Divider />
           <Flex justifyContent={'space-between'}>
-            <Text>Disponibile per l'Acquisto:</Text> <Tag fontWeight="bold" colorScheme='green'>{formatNumber(availableForPurchase)}</Tag>
+            <Text>Disponibile per l'Acquisto:</Text> <Tag fontWeight="bold" colorScheme={availableForPurchase < 0 ? 'none' : 'green'}>{availableForPurchase < 0 ? 'Fra non ci stai dentro 🙃' : formatNumber(availableForPurchase)}</Tag>
           </Flex>
           <Divider />
           <Flex justifyContent={'space-between'}>
             <Text>Mutuo Necessario:</Text>
-            <Tag fontWeight="bold" colorScheme={mortgageNeeded > 0 ? 'green' : 'blue'}>
+            {availableForPurchase < 0 ? "Un'altra volta dai" : <Tag fontWeight="bold" colorScheme={mortgageNeeded > 0 ? 'green' : 'blue'}>
               {mortgageNeeded > 0 ? formatNumber(mortgageNeeded) : "Nessun mutuo necessario"}
-            </Tag>
+            </Tag>}
           </Flex>
-          <Flex justifyContent={'space-between'}>
-            <Text>Rata mensile stimata:</Text>
-            <Tag fontWeight="bold" colorScheme={mortgageNeeded > 0 ? 'green' : 'blue'}>
+          <Flex justifyContent={'space-between'} alignItems='center'>
+            <Flex alignItems='left' gap='2' flexDirection='column'>
+              <Text mb={0} pb={0}>Rata mensile stimata:</Text>
+              <Text fontSize='xs'>(calcolata un po a cazzo non ti fidare. Vai su <a href="www.mutuionline.it" target="_blank" title="Link a mutui online" style={{textDecoration:"underline"}}>mutui online</a>)</Text>
+            </Flex>
+            {availableForPurchase < 0 ? "Un'altra volta dai" : <Tag fontWeight="bold" colorScheme={mortgageNeeded > 0 ? 'green' : 'blue'}>
               {monthlyMortgage > 0 ? formatNumber(monthlyMortgage) : "Nessun mutuo necessario"}
-            </Tag>
+            </Tag>}
           </Flex>
         </Flex>
         <FixedExpensesModal
