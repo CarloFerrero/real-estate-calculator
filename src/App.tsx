@@ -34,10 +34,10 @@ const App: React.FC = () => {
   return (
     <ChakraProvider>
       <Container maxW="container.sm" mt={10} mb={10}>
-        <Heading as="h1" size="xl" mb={6}>Calcolami casa</Heading>
+        <Heading as="h1" size="xl" mb={6}>Calcolami casa 🫠 🏠</Heading>
         <Stack spacing={4}>
           <Box>
-            <Text mb={2}>🏠 Valore dell'Immobile</Text>
+            <Text mb={2}>🏦 Valore dell'Immobile</Text>
             <Input
               type="number"
               value={propertyValue}
@@ -89,7 +89,7 @@ const App: React.FC = () => {
             <Text>Spese Fisse:</Text> <Tag fontWeight="bold" colorScheme='red'>- {formatNumber(fixedExpensesTotal)}</Tag>
           </Flex>
           <Flex justifyContent={'space-between'}>
-            <Text>Spese Variabili (ristrutturazione/arredo):</Text> <Tag fontWeight="bold" colorScheme='red'>- {formatNumber(variableExpenses)}</Tag>
+            <Text>Ristrutturazione + Arredo:</Text> <Tag fontWeight="bold" colorScheme='red'>- {formatNumber(variableExpenses)}</Tag>
           </Flex>
           <Divider />
           <Flex justifyContent={'space-between'}>
