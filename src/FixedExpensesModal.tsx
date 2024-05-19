@@ -29,9 +29,9 @@ const FixedExpensesModal: React.FC<FixedExpensesModalProps> = ({ isOpen, onClose
     };
 
     return (
-        <Modal isOpen={isOpen} onClose={onClose} size='2xl'>
+        <Modal isOpen={isOpen} onClose={onClose} size='2xl' >
             <ModalOverlay />
-            <ModalContent>
+            <ModalContent mr={3} ml={3}>
                 <ModalHeader>Modifica Spese Fisse</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>

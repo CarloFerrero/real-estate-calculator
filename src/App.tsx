@@ -33,7 +33,7 @@ const App: React.FC = () => {
 
   return (
     <ChakraProvider>
-      <Container maxW="container.sm" mt={10}>
+      <Container maxW="container.sm" mt={10} mb={10}>
         <Heading as="h1" size="xl" mb={6}>Real Estate Calculator</Heading>
         <Stack spacing={4}>
           <Box>
