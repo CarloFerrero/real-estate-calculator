@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ChakraProvider, Container, Input, Stack, Text, Heading, Box, Tag, Flex, Divider, Button } from '@chakra-ui/react';
 import FixedExpensesModal from './FixedExpensesModal';
+import { InfoOutlineIcon } from '@chakra-ui/icons';
 
 const App: React.FC = () => {
   const [propertyValue, setPropertyValue] = useState<number>(160000);
@@ -33,7 +34,7 @@ const App: React.FC = () => {
 
   return (
     <ChakraProvider>
-      <Container maxW="container.sm" mt={10} mb={10}>
+      <Container maxW="container.md" mt={10} mb={10}>
         <Heading as="h1" size="xl" mb={6}>Calcolami casa 🫠 🏠</Heading>
         <Stack spacing={4}>
           <Box>
@@ -77,16 +78,19 @@ const App: React.FC = () => {
             />
           </Box>
         </Stack>
-        <Button mt={6} colorScheme="blue" onClick={() => setIsModalOpen(true)}>Modifica Spese Fisse</Button>
         <Box mt={6} mb={6} />
         <Flex flexDirection={'column'} gap={3}>
-          <Divider />
           <Flex justifyContent={'space-between'}>
             <Text>Budget Totale:</Text> <Tag fontWeight="bold" colorScheme='green'>+ {formatNumber(totalBudget)}</Tag>
           </Flex>
           <Divider />
           <Flex justifyContent={'space-between'}>
-            <Text>Spese Fisse:</Text> <Tag fontWeight="bold" colorScheme='red'>- {formatNumber(fixedExpensesTotal)}</Tag>
+            <Flex alignItems='center' gap='2'>
+              <Button size="xs" onClick={() => setIsModalOpen(true)}>
+                <InfoOutlineIcon />
+              </Button>
+              <Text>Spese Fisse:</Text>
+            </Flex> <Tag fontWeight="bold" colorScheme='red'>- {formatNumber(fixedExpensesTotal)}</Tag>
           </Flex>
           <Flex justifyContent={'space-between'}>
             <Text>Ristrutturazione + Arredo:</Text> <Tag fontWeight="bold" colorScheme='red'>- {formatNumber(variableExpenses)}</Tag>
@@ -110,6 +114,11 @@ const App: React.FC = () => {
           setFixedExpenses={setFixedExpenses}
         />
       </Container>
+      <footer style={{ textAlign: 'center', marginTop: '20px', marginBottom: '20px', paddingTop:'50px' }}>
+      <Divider mb='20px' />
+
+        <Text>© 2024 Carlo Quello Alto - All Rights Reserved</Text>
+      </footer>
     </ChakraProvider>
   );
 };
