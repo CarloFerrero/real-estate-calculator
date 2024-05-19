@@ -117,7 +117,7 @@ const App: React.FC = () => {
           <Flex justifyContent={'space-between'}>
             <Text>Mutuo Necessario:</Text>
             {availableForPurchase < 0 ? "Un'altra volta dai" : <Tag fontWeight="bold" colorScheme={mortgageNeeded > 0 ? 'green' : 'blue'}>
-              {mortgageNeeded > 0 ? formatNumber(mortgageNeeded) : "Nessun mutuo necessario"}
+              {mortgageNeeded > 0 ? formatNumber(mortgageNeeded) : "Io no pago mutuo"}
             </Tag>}
           </Flex>
           <Flex justifyContent={'space-between'} alignItems='center'>
