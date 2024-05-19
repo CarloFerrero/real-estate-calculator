@@ -123,7 +123,7 @@ const App: React.FC = () => {
           <Flex justifyContent={'space-between'} alignItems='center'>
             <Flex alignItems='left' gap='2' flexDirection='column'>
               <Text mb={0} pb={0}>Rata mensile stimata:</Text>
-              <Text fontSize='xs'>(calcolata un po a cazzo non ti fidare. Vai su <a href="www.mutuionline.it" target="_blank" title="Link a mutui online" style={{textDecoration:"underline"}}>mutui online</a>)</Text>
+              <Text fontSize='xs'>(calcolata un po a cazzo non ti fidare. Vai su <a href="www.mutuionline.it" target="_blank" title="Link a mutui online">mutui online</a>)</Text>
             </Flex>
             {availableForPurchase < 0 ? "Un'altra volta dai" : <Tag fontWeight="bold" colorScheme={mortgageNeeded > 0 ? 'green' : 'blue'}>
               {monthlyMortgage > 0 ? formatNumber(monthlyMortgage) : "Nessun mutuo necessario"}
