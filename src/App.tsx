@@ -34,7 +34,7 @@ const App: React.FC = () => {
   return (
     <ChakraProvider>
       <Container maxW="container.sm" mt={10} mb={10}>
-        <Heading as="h1" size="xl" mb={6}>Real Estate Calculator</Heading>
+        <Heading as="h1" size="xl" mb={6}>Calcolami casa</Heading>
         <Stack spacing={4}>
           <Box>
             <Text mb={2}>Valore dell'Immobile</Text>
