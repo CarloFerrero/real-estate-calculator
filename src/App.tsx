@@ -37,7 +37,7 @@ const App: React.FC = () => {
         <Heading as="h1" size="xl" mb={6}>Calcolami casa</Heading>
         <Stack spacing={4}>
           <Box>
-            <Text mb={2}>Valore dell'Immobile</Text>
+            <Text mb={2}>🏠 Valore dell'Immobile</Text>
             <Input
               type="number"
               value={propertyValue}
@@ -45,7 +45,7 @@ const App: React.FC = () => {
             />
           </Box>
           <Box>
-            <Text mb={2}>Budget per Ristrutturazione</Text>
+            <Text mb={2}>🚧 Budget per Ristrutturazione 🚧</Text>
             <Input
               type="number"
               value={renovationBudget}
@@ -53,7 +53,7 @@ const App: React.FC = () => {
             />
           </Box>
           <Box>
-            <Text mb={2}>Budget per Arredamento</Text>
+            <Text mb={2}>🎨 Budget per Arredamento</Text>
             <Input
               type="number"
               value={furnitureBudget}
@@ -61,7 +61,7 @@ const App: React.FC = () => {
             />
           </Box>
           <Box>
-            <Text mb={2}>Il Mio Budget</Text>
+            <Text mb={2}>💸 💸 Il Mio Budget</Text>
             <Input
               type="number"
               value={personalBudget}
@@ -69,7 +69,7 @@ const App: React.FC = () => {
             />
           </Box>
           <Box>
-            <Text mb={2}>Budget dei Miei Genitori</Text>
+            <Text mb={2}>🤫 Budget dei Miei Genitori 🤫</Text>
             <Input
               type="number"
               value={parentsBudget}
