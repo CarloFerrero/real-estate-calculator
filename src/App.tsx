@@ -4,7 +4,7 @@ import FixedExpensesModal from './FixedExpensesModal';
 import { InfoOutlineIcon } from '@chakra-ui/icons';
 
 const App: React.FC = () => {
-  const [propertyValue, setPropertyValue] = useState<number>(160000);
+  const [propertyValue, setPropertyValue] = useState<number>(130000);
   const [renovationBudget, setRenovationBudget] = useState<number>(20000);
   const [furnitureBudget, setFurnitureBudget] = useState<number>(20000);
   const [personalBudget, setPersonalBudget] = useState<number>(30000);
