@@ -28,6 +28,20 @@ const App: React.FC = () => {
   const availableForPurchase = totalBudget - variableExpenses - fixedExpensesTotal;
   const mortgageNeeded = propertyValue - availableForPurchase;
 
+  const calculateMonthlyPayment = (principal: number, annualRate: number, years: number) => {
+    const monthlyRate = annualRate / 100 / 12;
+    const numberOfPayments = years * 12;
+
+    const monthlyPayment = (principal * monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)) / (Math.pow(1 + monthlyRate, numberOfPayments) - 1);
+
+    return monthlyPayment;
+  };
+
+  const annualRate = 1.40;
+  const years = 30;
+
+  const monthlyMortgage = calculateMonthlyPayment(propertyValue, annualRate, years);
+
   const formatNumber = (num: number) => {
     return new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' }).format(num);
   };
@@ -106,6 +120,12 @@ const App: React.FC = () => {
               {mortgageNeeded > 0 ? formatNumber(mortgageNeeded) : "Nessun mutuo necessario"}
             </Tag>
           </Flex>
+          <Flex justifyContent={'space-between'}>
+            <Text>Rata mensile stimata:</Text>
+            <Tag fontWeight="bold" colorScheme={mortgageNeeded > 0 ? 'green' : 'blue'}>
+              {monthlyMortgage > 0 ? formatNumber(monthlyMortgage) : "Nessun mutuo necessario"}
+            </Tag>
+          </Flex>
         </Flex>
         <FixedExpensesModal
           isOpen={isModalOpen}
@@ -114,8 +134,8 @@ const App: React.FC = () => {
           setFixedExpenses={setFixedExpenses}
         />
       </Container>
-      <footer style={{ textAlign: 'center', marginTop: '20px', marginBottom: '20px', paddingTop:'50px' }}>
-      <Divider mb='20px' />
+      <footer style={{ textAlign: 'center', marginTop: '20px', marginBottom: '20px', paddingTop: '50px' }}>
+        <Divider mb='20px' />
 
         <Text>© 2024 Carlo Quello Alto - All Rights Reserved</Text>
       </footer>
