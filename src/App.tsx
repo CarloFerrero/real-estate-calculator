@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ChakraProvider, Container, Input, Stack, Text, Heading, Box, Tag, Flex, Divider, Button } from '@chakra-ui/react';
+import { ChakraProvider, Container, Stack, Text, Heading, Box, Tag, Flex, Divider, Button } from '@chakra-ui/react';
+import NumberFormat from 'react-number-format';
 import FixedExpensesModal from './FixedExpensesModal';
 
 const App: React.FC = () => {
@@ -34,46 +35,71 @@ const App: React.FC = () => {
   return (
     <ChakraProvider>
       <Container maxW="container.sm" mt={10} mb={10}>
-        <Heading as="h1" size="xl" mb={6}>Calcolami casa 🫠 🏠</Heading>
+        <Heading as="h1" size="xl" mb={6}>Real Estate Calculator</Heading>
         <Stack spacing={4}>
           <Box>
-            <Text mb={2}>🏦 Valore dell'Immobile</Text>
-            <Input
-              type="number"
+            <Text mb={2}>Valore dell'Immobile</Text>
+            <NumberFormat
               value={propertyValue}
-              onChange={(e) => setPropertyValue(Number(e.target.value))}
+              thousandSeparator={true}
+              decimalScale={2}
+              fixedDecimalScale={true}
+              allowNegative={false}
+              prefix="€"
+              customInput={Input}
+              onValueChange={(values) => setPropertyValue(values.floatValue || 0)}
             />
           </Box>
           <Box>
-            <Text mb={2}>🚧 Budget per Ristrutturazione 🚧</Text>
-            <Input
-              type="number"
+            <Text mb={2}>Budget per Ristrutturazione</Text>
+            <NumberFormat
               value={renovationBudget}
-              onChange={(e) => setRenovationBudget(Number(e.target.value))}
+              thousandSeparator={true}
+              decimalScale={2}
+              fixedDecimalScale={true}
+              allowNegative={false}
+              prefix="€"
+              customInput={Input}
+              onValueChange={(values) => setRenovationBudget(values.floatValue || 0)}
             />
           </Box>
           <Box>
-            <Text mb={2}>🎨 Budget per Arredamento</Text>
-            <Input
-              type="number"
+            <Text mb={2}>Budget per Arredamento</Text>
+            <NumberFormat
               value={furnitureBudget}
-              onChange={(e) => setFurnitureBudget(Number(e.target.value))}
+              thousandSeparator={true}
+              decimalScale={2}
+              fixedDecimalScale={true}
+              allowNegative={false}
+              prefix="€"
+              customInput={Input}
+              onValueChange={(values) => setFurnitureBudget(values.floatValue || 0)}
             />
           </Box>
           <Box>
-            <Text mb={2}>💸 💸 Il Mio Budget</Text>
-            <Input
-              type="number"
+            <Text mb={2}>Il Mio Budget</Text>
+            <NumberFormat
               value={personalBudget}
-              onChange={(e) => setPersonalBudget(Number(e.target.value))}
+              thousandSeparator={true}
+              decimalScale={2}
+              fixedDecimalScale={true}
+              allowNegative={false}
+              prefix="€"
+              customInput={Input}
+              onValueChange={(values) => setPersonalBudget(values.floatValue || 0)}
             />
           </Box>
           <Box>
-            <Text mb={2}>🤫 Budget dei Miei Genitori 🤫</Text>
-            <Input
-              type="number"
+            <Text mb={2}>Budget dei Miei Genitori</Text>
+            <NumberFormat
               value={parentsBudget}
-              onChange={(e) => setParentsBudget(Number(e.target.value))}
+              thousandSeparator={true}
+              decimalScale={2}
+              fixedDecimalScale={true}
+              allowNegative={false}
+              prefix="€"
+              customInput={Input}
+              onValueChange={(values) => setParentsBudget(values.floatValue || 0)}
             />
           </Box>
         </Stack>
@@ -89,7 +115,7 @@ const App: React.FC = () => {
             <Text>Spese Fisse:</Text> <Tag fontWeight="bold" colorScheme='red'>- {formatNumber(fixedExpensesTotal)}</Tag>
           </Flex>
           <Flex justifyContent={'space-between'}>
-            <Text>Ristrutturazione + Arredo:</Text> <Tag fontWeight="bold" colorScheme='red'>- {formatNumber(variableExpenses)}</Tag>
+            <Text>Spese Variabili (ristrutturazione/arredo):</Text> <Tag fontWeight="bold" colorScheme='red'>- {formatNumber(variableExpenses)}</Tag>
           </Flex>
           <Divider />
           <Flex justifyContent={'space-between'}>
