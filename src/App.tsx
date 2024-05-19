@@ -76,7 +76,7 @@ const App: React.FC = () => {
             />
           </Box>
           <Box>
-            <Text mb={2}>💸 💸 Il Mio Budget</Text>
+            <Text mb={2}>💸 💸 Il Mio Budget {personalBudget > 50000 ? "- (Dioffa che toretto 🐂)" : ""}</Text>
             <Input
               type="number"
               value={personalBudget}
@@ -84,7 +84,7 @@ const App: React.FC = () => {
             />
           </Box>
           <Box>
-            <Text mb={2}>🤫 Budget dei Miei Genitori 🤫</Text>
+            <Text mb={2}>{parentsBudget === 0 ? "😢" : "🤫"} Budget dei Miei Genitori {parentsBudget === 0 ? "😢" : "🤫"}</Text>
             <Input
               type="number"
               value={parentsBudget}
