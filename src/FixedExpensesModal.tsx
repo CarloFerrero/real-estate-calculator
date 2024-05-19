@@ -36,7 +36,10 @@ const FixedExpensesModal: React.FC<FixedExpensesModalProps> = ({ isOpen, onClose
                 <ModalCloseButton />
                 <ModalBody>
                     <Stack spacing={4}>
-                        <Flex justifyContent="space-between" alignItems="center" gap={2}>
+                        <Flex justifyContent="space-between" alignItems="center" gap={2} flexDirection={{
+                            base: 'column',
+                            md: 'row',
+                        }}>
                             <FormControl>
                                 <FormLabel>Commissione Agenzia (%)</FormLabel>
                                 <Input
@@ -54,7 +57,10 @@ const FixedExpensesModal: React.FC<FixedExpensesModalProps> = ({ isOpen, onClose
                                 />
                             </FormControl>
                         </Flex>
-                        <Flex justifyContent="space-between" alignItems="center" gap={2}>
+                        <Flex justifyContent="space-between" alignItems="center" gap={2} flexDirection={{
+                            base: 'column',
+                            md: 'row',
+                        }}>
                             <FormControl>
                                 <FormLabel>Onorario Notaio per Compravendita (€)</FormLabel>
                                 <Input
@@ -72,7 +78,10 @@ const FixedExpensesModal: React.FC<FixedExpensesModalProps> = ({ isOpen, onClose
                                 />
                             </FormControl>
                         </Flex>
-                        <Flex justifyContent="space-between" alignItems="center" gap={2}>
+                        <Flex justifyContent="space-between" alignItems="center" gap={2} flexDirection={{
+                            base: 'column',
+                            md: 'row',
+                        }}>
                             <FormControl>
                                 <FormLabel>Imposta Catastale (€)</FormLabel>
                                 <Input
@@ -90,7 +99,10 @@ const FixedExpensesModal: React.FC<FixedExpensesModalProps> = ({ isOpen, onClose
                                 />
                             </FormControl>
                         </Flex>
-                        <Flex justifyContent="space-between" alignItems="center" gap={2}>
+                        <Flex justifyContent="space-between" alignItems="center" gap={2} flexDirection={{
+                            base: 'column',
+                            md: 'row',
+                        }}>
                             <FormControl>
                                 <FormLabel>Registrazione Preliminare (€)</FormLabel>
                                 <Input
